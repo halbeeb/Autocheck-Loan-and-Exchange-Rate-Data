@@ -39,9 +39,9 @@ def fetch_exchange_rates():
     df.to_csv('exchange_rates.csv', mode='a', header=False, index=False)
 
 
-# Schedule to run at 7 AM and 7 PM every day
-schedule.every().day.at("07:00").do(fetch_exchange_rates)
-schedule.every().day.at("19:00").do(fetch_exchange_rates)
+# Schedule to run at 1 AM and 11 PM every day
+schedule.every().day.at("01:00").do(fetch_exchange_rates)
+schedule.every().day.at("23:00").do(fetch_exchange_rates)
 
 while True:
     schedule.run_pending()

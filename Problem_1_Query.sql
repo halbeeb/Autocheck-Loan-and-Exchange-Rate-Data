@@ -78,6 +78,22 @@ Calculate PAR Days - Par Days means the number of days the loan was not paid in 
 E.g., If the loan repayment was due on the 10th Feb 2022 and payment was made on the 15th Feb 2022 
 the par days would be 5 days*/
 
+-- Calculating PAR Days
+SELECT
+    ps.loan_id,
+    ps.Expected_payment_date,
+    lp.Date_paid,
+    CASE
+        WHEN lp.Date_paid IS NOT NULL THEN GREATEST(EXTRACT(DAY FROM AGE(lp.Date_paid, ps.Expected_payment_date)), 0)
+        ELSE NULL
+    END AS PAR_Days
+FROM
+    payment_schedule ps
+LEFT JOIN loan_payment lp ON ps.loan_id = lp.loan_id
+ORDER BY
+    ps.loan_id, ps.Expected_payment_date;
+	
+
 -- Write out queries that profer solutions to the problem statement 1
 
 SELECT
