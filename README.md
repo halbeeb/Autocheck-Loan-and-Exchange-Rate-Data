@@ -19,7 +19,7 @@ This [SQL script](Problem_1_Query.sql) is a comprehensive SQL setup for creating
 These were used to create schema and populate the data wareshouse created in Postgres 15.
 The relationship between these table are capture in below:
 
-![Loan Data Entity Relationship Diagram](Autochek ERD.png)
+![Loan Data Entity Relationship Diagram](https://github.com/halbeeb/Autocheck-Loan-and-Exchange-Rate-Data/blob/master/Autochek%20ERD.png)
 
 ### Data Loading
 - The `COPY` commands are used to load data into each table from CSV files stored on a local machine. These commands are specific to PostgreSQL and rely on the CSV files being formatted correctly.
